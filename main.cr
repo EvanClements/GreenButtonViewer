@@ -1,5 +1,6 @@
 require "xml"
 require "json"
+require "kemal"
 
 xml = <<-XML
 	<Account AcountNumber="30011890917">
@@ -28,17 +29,26 @@ XML
 
 document = XML.parse(xml).first_element_child
 
-string = JSON.build do |json|
-  json.object do
-    json.field "name", "foo"
-    json.field "values" do
-      json.array do
-        json.number 1
-        json.number 2
-        json.number 3
+# When you access the root, parse the preset XML object and spit out JSON
+get "/" do |env|
+  env.response.content_type = "application/json"
+  
+  # Parse XML object to JSON
+  grnbtn = JSON.build do |json|
+    json.object do
+      json.field "name", "foo"
+      json.field "values" do
+        json.array do
+          json.number 1
+          json.number 2
+          json.number 3
+        end
       end
     end
   end
+
+  grnbtn.to_json
+
 end
 
-puts string
+Kemal.run

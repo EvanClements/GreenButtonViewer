@@ -7,36 +7,65 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
 		<title>Green Button XML Parsing</title>
 		<style>
-			
+			#my-usage-chart {
+				display: grid;
+				align-items: center;
+				justify-items: center;
+				grid-template-columns: 50px 1fr 50px;
+				grid-template-rows: 250px 50px;
+				grid-template-areas: 
+					"data-1-axis  stocks       data-2-axis"
+					"data-1-axis  volume       data-2-axis"
+					"primary-axis primary-axis primary-axis";
+			}
+			#my-usage-chart > table.area,
+			#my-usage-chart > table.line {
+				grid-area: stocks;
+			}
+			#my-usage-chart > table.column {
+				grid-area: volume;
+			}
+			#my-usage-chart > .primary-axis {
+				grid-area: primary-axis;
+			}
+			#my-usage-chart > .data-1-axis {
+				grid-area: data-1-axis;
+				writing-mode: tb-rl;
+				transform: rotateZ(180deg);
+			}
+			#my-usage-chart > .data-2-axis {
+				grid-area: data-2-axis;
+				writing-mode: tb-rl;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 		<div class="columns is-centered is-vcentered">
-				<div class="column is-half">
-					<div class="file is-boxed is-medium">
-						<label class="file-label">
-					    	<input class="file-input" type="file" name="resume">
-				    		<span class="file-cta">
-					    		<span class="file-icon">
-					        		<i class="fas fa-upload"></i>
-					      		</span>
-					      		<span class="file-label"> Choose a file… </span>
-					    	</span>
-						</label>
-					</div>
+			<div class="column is-half">
+				<div class="file is-boxed is-medium">
+					<label class="file-label">
+						<input class="file-input" type="file" name="resume">
+						<span class="file-cta">
+							<span class="file-icon">
+								<i class="fas fa-upload"></i>
+							</span>
+							<span class="file-label"> Choose a file… </span>
+						</span>
+					</label>
 				</div>
 			</div>
-			<div class="columns">
-				<div class="column">
-					<div id="my-usage-chart">
-						<table class="charts-css line"> ... </table>
-						<table class="charts-css column"> ... </table>
-						<div class="primary-axis"> Primary Axis Title </div>
-						<div class="data-1-axis"> Data-1 Axis Title </div>
-					</div>
+		</div>
+		<div class="columns">
+			<div class="column">
+				<div id="my-usage-chart">
+					<table class="charts-css line"> ... </table>
+					<table class="charts-css column"> ... </table>
+					<div class="primary-axis"> Primary Axis Title </div>
+					<div class="data-1-axis"> Data-1 Axis Title </div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</body>
 </html>

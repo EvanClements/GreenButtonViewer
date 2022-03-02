@@ -1,6 +1,8 @@
 require "xml"
 require "json"
-require "kemal"
+require "csv"
+require "db"
+require "sqlite3"
 
 # Created new DB channel/file
 # Create tempfile for uploaded file to be saved
@@ -9,8 +11,6 @@ require "kemal"
 # If XML do parseXml
 # The only difference is the way the file is navigated
 # Do parseGreenButton with "file" as needed param and 
-
-require "xml"
 
 xml = <<-XML
 <Account AcountNumber="30011890917">

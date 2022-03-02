@@ -1,7 +1,6 @@
 require "xml"
 require "json"
 require "csv"
-require "db"
 require "sqlite3"
 
 # Created new DB channel/file

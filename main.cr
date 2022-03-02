@@ -11,6 +11,7 @@ require "sqlite3"
 # If XML do parseXml
 # The only difference is the way the file is navigated
 # Do parseGreenButton with "file" as needed param and 
+# MIME File Types: text/csv and application/xml
 
 xml = <<-XML
 <Account AcountNumber="30011890917">
